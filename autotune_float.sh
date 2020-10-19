@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export LD_LIBRARY_PATH=`readlink -f build/lib`:$LD_LIBRARY_PATH
 infile=mobilenet/contraction_1x1_$1_transposed.npy
 
 if [ $1 -eq 0 ]; then
