@@ -7,5 +7,5 @@ Dependencies:
 - Cuda toolchain, etc. 
 - Pytorch
 
-To try SpMM, type autotune_float.sh 0
-To try sparse convolution, type bash autotune_conv_float.sh 512 512 7 filter_bg4.npy
+To try SpMM, type `bash autotune_float.sh 0`<br/>
+To try sparse convolution, type `bash autotune_conv_float.sh 512 512 7 filter_bg4.npy`
