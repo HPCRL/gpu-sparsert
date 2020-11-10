@@ -97,4 +97,8 @@ for A_blocks in $(($A_dim / 8)); do
 	done
 done
 
+nnz=$(python scripts/get_nnz.py $infile)
+
 echo Best Runtime $besttime
+echo expr: "python -c \"print($nnz * 2 * $C_dim * 1e3 / ($besttime * 1e9))\""
+echo GFlops: $(python -c "print($nnz * 2 * $C_dim *1e3 / ($besttime * 1e9))")
