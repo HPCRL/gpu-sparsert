@@ -71,6 +71,10 @@ fi
 
 python scripts/make_BC.py $infile $C_dim
 
+if [ $2 == skip ] ; then
+	exit;
+fi
+
 A_choices=($(($A_dim / 32)) $(($A_dim / 16)) $(($A_dim / 8)))
 besttime=100
 #for A_blocks in ${A_choices[@]}; do
@@ -92,6 +96,7 @@ for A_blocks in $(($A_dim / 8)); do
 			echo $runtime
 			if (( $(echo "$runtime < $besttime" | bc -l) )) ; then 
 				besttime=$runtime
+				cp ./exe best.$(basename $infile .npy).exe
 			fi
 		done
 	done
